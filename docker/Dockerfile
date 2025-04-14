@@ -52,8 +52,8 @@ RUN \
     /config/* \
     /tmp/* \
     /var/lib/apt/lists/* \
-    /var/tmp/* \
-    && localedef -i en_NZ -c -f UTF-8 -A /usr/share/locale/locale.alias en_NZ.UTF-8
+    /var/tmp/* && \
+    localedef -i en_NZ -c -f UTF-8 -A /usr/share/locale/locale.alias en_NZ.UTF-8
 
 ENV LANG en_NZ.utf8
 
@@ -90,28 +90,6 @@ RUN wget -nv https://github.com/GenomicsAotearoa/introduction-to-shell/releases/
     && rm -f /var/lib/shell_data.zip \
     && chown -R root:root /var/lib/shell_data \
     && chmod -R o+rX /var/lib/shell_data 
-
-# Following data is for inidigitdata intro2shell: download the required data into the container image and make sure permission are ok
-RUN wget -nv https://github.com/GenomicsAotearoa/IndigiDataAotearoa-IntroToShell/releases/download/2023-Aug/sample-data.zip \
-        -O /var/lib/sample-data.zip \
-    && unzip /var/lib/sample-data.zip -d /var/lib \
-    && rm -f /var/lib/sample-data.zip \
-    && chown -R root:root /var/lib/sample-data \
-
-# download the required data into the container image and make sure permission are ok
-RUN wget -nv https://github.com/GenomicsAotearoa/shell-for-bioinformatics/releases/download/v2.0/puzzles_da.tar.gz \
-        -O /var/lib/puzzles_da.tar.gz \
-    && tar -xzf /var/lib/puzzles_da.tar.gz -C /var/lib \
-    && rm -f /var/lib/puzzles_da.tar.gz \
-    && chown -R root:root /var/lib/puzzles_da \
-    && chmod -R o+rX /var/lib/puzzles_da \
-    && wget -nv https://github.com/GenomicsAotearoa/shell-for-bioinformatics/releases/download/v2.0/shell4b_data.tar.gz \
-        -O /var/lib/shell4b_data.tar.gz \
-    && tar -xzf /var/lib/shell4b_data.tar.gz -C /var/lib \
-    && rm -f /var/lib/shell4b_data.tar.gz \
-    && chown -R root:root /var/lib/shell4b_data \
-    && chmod -R o+rX /var/lib/shell4b_data
-
 
 
 # ports and volumes
