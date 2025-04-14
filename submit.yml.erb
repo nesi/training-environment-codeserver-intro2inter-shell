@@ -10,7 +10,7 @@ script:
   native:
     container:
       name: "shell_codeserv"
-      image: "ghcr.io/nesi/training-environment-codeserver-intro2inter-shell-app:v0.1.0-dev"
+      image: "ghcr.io/nesi/training-environment-codeserver-intro2inter-shell-app:v0.1.1-dev"
       command: ["/bin/bash","-l","<%= staged_root %>/job_script_content.sh"]
       restart_policy: 'OnFailure'
       env:
