@@ -1,0 +1,17 @@
+# Export the module function if it exists
+
+exec &> >(tee -a "pod.log")
+
+# Export the module function if it exists
+[[ $(type -t module) == "function" ]] && export -f module
+
+source /bin/find_host_port
+source /bin/save_passwd_as_secret
+export host="$HOST_CFG"
+export port="$PORT_CFG"
+
+echo "host is: ${host}"
+echo "port is: ${port}"
+
+password=$PASSWORD
+export password PASSWORD]

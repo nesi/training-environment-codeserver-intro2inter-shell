@@ -1,0 +1,7 @@
+---
+name: Shell for Bioinformatics
+category: Interactive Apps
+subcategory: Servers
+role: batch_connect
+description: |
+  This app will launch code-server for the Shell for Bioinformatics workshop
