@@ -43,6 +43,12 @@ if [[ -f "$CPP_FILE" ]]; then
 echo "$(date): Started code-server"
 echo ""
 
+
+#This is to resolve issue : https://github.com/nesi/nesi-ood-rstudio-server-app/issues/13
+if [ ! -f ~/.inputrc ] || ! grep -qF 'set enable-bracketed-paste off' ~/.inputrc; then
+   echo 'set enable-bracketed-paste off' >> ~/.inputrc
+fi
+
 # avoind using ${host} for --bind-addr
 
 code-server \
